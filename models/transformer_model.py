@@ -189,6 +189,7 @@ class TransformerModel(BaseModel):
 
         y = y[:,indices]
         input_windows = [y]
+        input_windows = np.array(input_windows)
         song_sequence = torch.tensor(input_windows)
         song_sequence = (song_sequence - song_sequence.mean())/torch.abs(song_sequence).max().float()
         if not opt.tgt_vector_input:

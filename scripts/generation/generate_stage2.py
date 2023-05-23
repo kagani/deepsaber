@@ -63,7 +63,7 @@ if args.cuda:
 else:
     opt["cuda"] = False
 opt["batch_size"] = 1
-opt["beam_size"] = 20
+opt["beam_size"] = 33
 opt["n_best"] = 1
 # opt["using_bpm_time_division"] = True
 opt["continue_train"] = False

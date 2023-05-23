@@ -119,6 +119,7 @@ class DDCModel(BaseModel):
         # loop that gets the input features for each of the windows, shifted by `ii`, and saves them in `input_windowss`
         for ii in range(-time_shifts//2, time_shifts//2+1):
             input_windows = [y[:,:,self.opt.time_shifts//2+ii:self.opt.time_shifts//2+ii+input_length]]
+            input_windows = np.array(input_windows)
             input_windows = torch.tensor(input_windows)
             input_windows = (input_windows - input_windows.mean())/torch.abs(input_windows).max()
             # input_windows = (input_windows.permute(3,0,1,2) - input_windows.mean(-1)).permute(1,2,3,0)
